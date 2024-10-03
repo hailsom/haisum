@@ -51,68 +51,71 @@ int main ()
     cout<<"Explore all our math tools!\n";
     cout<<"\n";
     cout<< "1.Four Function (+,-,/,*) \t\t";
-    cout<<"2.Scientific (sin, cos, tan)\n";
+    cout<<"2.Trigonometric (sin, cos, tan)\n";
     cout<<"\n";
     
     int selection;
     cout<<"Enter tool number: ";
     cin>>selection;
     
-    if (selection== 1){
-        
-        
-        int num1, num2;
-        char op; //operand variable
-        cout<< "Enter first number: ";
-        cin >> num1;
-        cout<< "Enter operand: ";
-        cin >> op;
-        cout<< "Enter second number: ";
-        cin >> num2;
-        
-        if (op == '+'){
-            add(num1,num2);
-        }else if (op == '-'){
-            subtract(num1,num2);
-        }else if (op == '*'){
-            times(num1, num2);
-        }else if (op == '/'){
-            divide(num1,num2);
-        }else if (op == '%'){
-            mod(num1, num2);
-        }else {
-            cout<< "INVALID OPERATOR!";
+    switch (selection){
+            
+            
+        case 1: {int num1, num2;
+            char op; //operand variable
+            cout<< "Enter first number: ";
+            cin >> num1;
+            cout<< "Enter operand: ";
+            cin >> op;
+            cout<< "Enter second number: ";
+            cin >> num2;
+            
+            if (op == '+'){
+                add(num1,num2);
+            }else if (op == '-'){
+                subtract(num1,num2);
+            }else if (op == '*'){
+                times(num1, num2);
+            }else if (op == '/'){
+                divide(num1,num2);
+            }else if (op == '%'){
+                mod(num1, num2);
+            }else {
+                cout<< "INVALID OPERATOR!";
+            }
+            break;
         }
-        
-    }else if (selection==2){
-        double num, answer;
-        string trig;
-        cout<< "Enter trig function (sin,cos,tan): ";
-        cin>> trig;
-        cout<< "Enter radian: ";
-        cin>> num;
-        
-        if (trig == "sin"){
-            answer= sin(num);
-            cout<< fixed<< setprecision(4)<<answer<< endl;
-        } else if (trig == "cos"){
-            answer= cos(num);
-            cout<<fixed<< setprecision(4)<<answer<< endl;
-        }else if (trig == "tan"){
-            answer= tan(num);
-            cout<<fixed<< setprecision(4)<<answer<< endl;
-        }else {
-            cout<< "INVALID FUNCTION!";
+        case 2:{
+            double num, answer;
+            string trig;
+            cout<< "Enter trig function (sin,cos,tan): ";
+            cin>> trig;
+            cout<< "Enter radian: ";
+            cin>> num;
+            
+            if (trig == "sin"){
+                answer= sin(num);
+                cout<< fixed<< setprecision(4)<<"Answer: "<<answer<< endl;
+            } else if (trig == "cos"){
+                answer= cos(num);
+                cout<<fixed<< setprecision(4)<<"Answer: "<<answer<< endl;
+            }else if (trig == "tan"){
+                answer= tan(num);
+                cout<<fixed<< setprecision(4)<<"Answer: "<<answer<< endl;
+            }else {
+                cout<< "INVALID FUNCTION!";
+            }
+            break;
         }
-        
-    }else {
-        cout<< "INVALID SELECTION!";
+        default:
+            cout<< "INVALID SELECTION!";
+            break;
+            
+            
+            
+            
+            
+            
+            return 0;
     }
-    
-    
-    
-    
-    
-    return 0;
 }
-
