@@ -30,9 +30,9 @@ int times(int num1, int num2) {
     return product;
 }
 //division
-int divide(int num1, int num2) {
-    int quotient = num1 / num2;
-    cout << quotient << endl;
+double divide(double num1, double num2) {
+    double quotient = num1 / num2;
+    cout << fixed<<setprecision(2)<<quotient << endl;
     return quotient;
 }
 //remainder
@@ -48,10 +48,11 @@ int main ()
     
     cout<<"                              > HailSum| CALCULATOR <  \n";
     cout<<"                              ^^^^^^^^^^^^^^^^^^^^^^^\n";
-    cout<<"Explore all our math tools!\n";
+    cout<<"                             Explore all our math tools!\n";
     cout<<"\n";
-    cout<< "1.Four Function (+,-,/,*) \t\t";
-    cout<<"2.Trigonometric (sin, cos, tan)\n";
+    cout<< "1.Four Function (+,-,/,*) \t";
+    cout<<"2.Trigonometric (sin,cos,tan)\t";
+    cout<<"3.Exponents & Roots\n";
     cout<<"\n";
     
     int selection;
@@ -104,6 +105,31 @@ int main ()
                 cout<<fixed<< setprecision(4)<<"Answer: "<<answer<< endl;
             }else {
                 cout<< "INVALID FUNCTION!";
+            }
+            break;
+        }
+        case 3: {
+            double num1, num2,answer;
+            char selection;
+            cout<<"a.Exponents b.Roots\n";
+            cout<<"Selection: ";
+            cin>>selection;
+            
+            switch(selection){
+                case 'a':
+                case 'A': {
+                    cout<<"Enter base and exponent: ";
+                    cin>>num1>>num2;
+                    answer=pow(num1,num2);
+                    cout<<answer<<endl;
+                }
+                case 'b':
+                case 'B':{
+                    cout<<"Enter base and root: ";
+                    cin>>num1>>num2;
+                    answer=pow(num1,(1.0/num2));
+                    cout<<answer<<endl;
+                }
             }
             break;
         }
